@@ -20,6 +20,7 @@
             <th>Código</th>
             <th>Descripción</th>
             <th>Precio</th>
+            <th>Acciones</th>
         </thead>
         <tbody>
             <?php foreach ($sent as $fila): ?>
@@ -27,6 +28,7 @@
                     <td><?= hh($fila['codigo']) ?></td>
                     <td><?= hh($fila['descripcion']) ?></td>
                     <td><?= hh($fila['precio']) ?></td>
+                    <td><button>borrar</button></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
