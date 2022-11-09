@@ -40,5 +40,6 @@
             <?php endforeach ?>
         </tbody>
     </table>
+    <a href="insertar.php">Insertar un nuevo articulo</a>
 </body>
 </html>
