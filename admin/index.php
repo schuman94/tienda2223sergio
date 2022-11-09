@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,13 +8,19 @@
     <title>Listado de artículos</title>
 </head>
 <body>
-    Listado de artículos
     <?php
     require '../comunes/auxiliar.php';
     require 'comunes/auxiliar.php';
     $pdo = conectar();
     $sent = $pdo->query("SELECT * FROM articulos ORDER BY codigo");
+
+    if (isset($_SESSION['mensaje'])) {
+        echo $_SESSION['mensaje'];
+        unset($_SESSION['mensaje']);
+    }
     ?>
+
+    <div>Listado de artículos</div>
 
     <table border="1">
         <thead>
@@ -28,7 +35,7 @@
                     <td><?= hh($fila['codigo']) ?></td>
                     <td><?= hh($fila['descripcion']) ?></td>
                     <td><?= hh($fila['precio']) ?></td>
-                    <td><button>borrar</button></td>
+                    <td><a href="confirmar_borrado.php?id=<?= $fila['id'] ?>">Borrar</a></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
